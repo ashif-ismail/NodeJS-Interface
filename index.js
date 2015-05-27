@@ -30,10 +30,12 @@ http.request(options, callback).end();
         var phone_id = req.body.phone_id;
         
         // do something with the message, e.g. send an autoreply
-		  var http = require('http');
-	  var options = {
-  host: 'www.boilerpipe-web.appspot.com',
-  path: '/extract?url=http://www.caclub.in&extractor=ArticleExtractor&output=text&extractImages='
+	
+        res.json({
+				  var http = require('http');
+	              var options = {
+                  host: 'www.boilerpipe-web.appspot.com',
+                  path: '/extract?url=http://www.caclub.in&extractor=ArticleExtractor&output=text&extractImages='
 };
 callback = function(response) {
   var str = '';
@@ -48,7 +50,6 @@ callback = function(response) {
     console.log(str);
   });
 }
-        res.json({
           messages: [
             { content: "  " + str }
           ]
