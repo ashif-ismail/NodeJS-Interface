@@ -31,17 +31,15 @@ app.post('/telerivet/webhook',
   console.log(body);
   return body;
 });
-      messages:[
-	  {content : body }
-	  ]
+      
 
-	   // do something with the message, e.g. send an autoreply
+	   //do something with the message, e.g. send an autoreply
      
-		/*res.json({
+		res.json({
           messages: [
             { content: " "+body }
           ]
-        });*/
+        });
         
       }  
       
