@@ -20,8 +20,27 @@ app.post('/telerivet/webhook',
           res.status(403).end();
           return;
       }
-      
-      if (req.body.event == 'incoming_message') {
+      var http = require('http');
+	  var options = {
+  host: 'www.boilerpipe-web.appspot.com',
+  path: '/extract?url=http://www.caclub.in&extractor=ArticleExtractor&output=text&extractImages='
+};
+callback = function(response) {
+  var str = '';
+
+  //another chunk of data has been recieved, so append it to `str`
+  response.on('data', function (chunk) {
+    str += chunk;
+  });
+
+  //the whole response has been recieved, so we just print it out here
+  response.on('end', function () {
+    console.log(str);
+  });
+}
+
+http.request(options, callback).end();
+    if (req.body.event == 'incoming_message') {
       
         var content = req.body.content;
         var from_number = req.body.from_number;
