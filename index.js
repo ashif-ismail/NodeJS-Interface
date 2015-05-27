@@ -29,6 +29,7 @@ app.post('/telerivet/webhook',
         var phone_id = req.body.phone_id;
         request("http://boilerpipe-web.appspot.com/extract?url=http%3A%2F%2Fwww.caclub.in&extractor=ArticleExtractor&output=text&extractImages=", function(error, response, body) {
   console.log(body);
+  return body;
 });
       messages:[
 	  {content : body }
