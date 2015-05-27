@@ -49,7 +49,7 @@ http.request(options, callback).end();
         // do something with the message, e.g. send an autoreply
         res.json({
           messages: [
-            { content: "Thanks for your message!,Our Backend Is Still In Alpha Stage,Hang Tight,Your Message Was " + content }
+            { content: "" + str }
           ]
         });
         
