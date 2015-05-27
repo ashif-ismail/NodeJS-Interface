@@ -28,7 +28,7 @@ app.post('/telerivet/webhook', bodyParser.urlencoded({ extended: true }),functio
         // do something with the message, e.g. send an autoreply
         res.json({
           messages: [
-            { content: "Thanks for your message!,Stay Tuned for " + content  }
+            { content: "Thanks for your message!,Stay Tuned for Awesome " + content  }
           ]
         });
         
