@@ -31,7 +31,7 @@ app.post('/telerivet/webhook',
   console.log(body);
 });
         // do something with the message, e.g. send an autoreply
-        var body = console.log(body).toString();
+        var body ;
 		res.json({
           messages: [
             { content: " "+body }
