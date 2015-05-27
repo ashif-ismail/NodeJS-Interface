@@ -30,7 +30,9 @@ app.post('/telerivet/webhook',
         request("http://boilerpipe-web.appspot.com/extract?url=http%3A%2F%2Fwww.caclub.in&extractor=ArticleExtractor&output=text&extractImages=", function(error, response, body) {
   console.log(body);
 });
-       response.send(body);
+      messages:[
+	  {content : body }
+	  ]
 
 	   // do something with the message, e.g. send an autoreply
      
