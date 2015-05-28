@@ -1,6 +1,6 @@
 var express = require('express');
 var telerivet = require('telerivet');
-var tr = new telerivet.API(qtK22ZTspOIchvK4mQ3gphD3tK8kZJ6O );
+var tr = new telerivet.API(qtK22ZTspOIchvK4mQ3gphD3tK8kZJ6O);
 var project = tr.initProjectById(PJ47fdcdfbfe54700f);
 var app = express();
 
