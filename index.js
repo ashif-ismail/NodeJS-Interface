@@ -1,14 +1,14 @@
 var express = require('express');
-var request = require("request");
-var EventEmitter = require("events").EventEmitter;
-var body = new EventEmitter();
+var telerivet = require('telerivet');
+var tr = new telerivet.API(qtK22ZTspOIchvK4mQ3gphD3tK8kZJ6O );
+var project = tr.initProjectById(PJ47fdcdfbfe54700f);
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(request, response) {
-  response.send('Hello World!!');
+  response.send('Hello World!');
 });
 
 var bodyParser = require('body-parser');
@@ -23,18 +23,7 @@ app.post('/telerivet/webhook',
           res.status(403).end();
           return;
       }
-      request("http://www.stackoverflow.com", function(error, response, data) {
-      body.data = data;
-      body.emit('update');
-      });
-      body.on('update', function () {
-      console.log(body.data); // HOORAY! THIS WORKS!
-	  res.json({
-          messages: [
-            { content: "Thanks for your message!" + body.data }
-          ]
-        });
-     });
+      
       if (req.body.event == 'incoming_message') {
       
         var content = req.body.content;
@@ -42,8 +31,12 @@ app.post('/telerivet/webhook',
         var phone_id = req.body.phone_id;
         
         // do something with the message, e.g. send an autoreply
-		
-        
+            project.sendMessage({
+               content: "hello world", 
+              to_number: "9947753535"
+                  }, function(err, message) {
+
+});
         
       }  
       

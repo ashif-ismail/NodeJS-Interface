@@ -10,7 +10,8 @@
     "express": "~4.9.x",
     "body-parser": "1.12.4",
 	"request": "2.55.0",
-	"http": "0.0.0"
+	"http": "0.0.0",
+	"telerivet":"1.1.4"
   },
   "engines": {
     "node": "0.12.2"
