@@ -1,7 +1,5 @@
 var express = require('express');
 var telerivet = require('telerivet');
-var tr = new telerivet.API(qtK22ZTspOIchvK4mQ3gphD3tK8kZJ6O);
-var project = tr.initProjectById(PJ47fdcdfbfe54700f);
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
@@ -31,6 +29,9 @@ app.post('/telerivet/webhook',
         var phone_id = req.body.phone_id;
         
         // do something with the message, e.g. send an autoreply
+		var tr = new telerivet.API(SwdFFjXRmCbiZr0qr7c19KXD53KcGGCg);
+        var project = tr.initProjectById(PJ47fdcdfbfe54700f);
+
             project.sendMessage({
                content: "hello world", 
               to_number: "+919947753535"
