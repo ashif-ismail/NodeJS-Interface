@@ -33,7 +33,7 @@ app.post('/telerivet/webhook',
         // do something with the message, e.g. send an autoreply
             project.sendMessage({
                content: "hello world", 
-              to_number: "9947753535"
+              to_number: "+919947753535"
                   }, function(err, message) {
 
 });
