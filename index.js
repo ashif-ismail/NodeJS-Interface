@@ -28,10 +28,10 @@ app.post('/telerivet/webhook',
         var from_number = req.body.from_number;
         var phone_id = req.body.phone_id;
         var request = require("request");
-		var body;
+		
 		 request("http://www.google.com", function(error, response, data) {
-    body = data;
-});
+    
+
         // do something with the message, e.g. send an autoreply
         res.json({
 			 messages: [
@@ -39,9 +39,10 @@ app.post('/telerivet/webhook',
           ]
         });
         
-      }  
+       
       
       res.status(200).end();
+	  });
   }
 );
 
