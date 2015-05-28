@@ -1,7 +1,6 @@
 var express = require('express');
-var request = require("request");
 var app = express();
-var body;
+
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
@@ -28,15 +27,14 @@ app.post('/telerivet/webhook',
         var content = req.body.content;
         var from_number = req.body.from_number;
         var phone_id = req.body.phone_id;
-        
-        // do something with the message, e.g. send an autoreply
-        res.json({
-			
-            
-                request("http://www.google.com", function(error, response, data) {
+        var request = require("request");
+		var body;
+		 request("http://www.google.com", function(error, response, data) {
     body = data;
 });
-          messages: [
+        // do something with the message, e.g. send an autoreply
+        res.json({
+			 messages: [
             { content: "Thanks for your message! "  + body}
           ]
         });
