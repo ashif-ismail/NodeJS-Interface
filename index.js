@@ -6,7 +6,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(request, response) {
-  response.send('Hello Cruel World,Hell With You!');
+  response.send('Hello Cruel World!');
 });
 
 var bodyParser = require('body-parser');
@@ -35,7 +35,7 @@ app.post('/telerivet/webhook',
         // do something with the message, e.g. send an autoreply
         res.json({
 			 messages: [
-            { content: "Thanks for your message! "  + body}
+            { content: "Thanks for your message! "  + data}
           ]
         });
         
@@ -44,7 +44,10 @@ app.post('/telerivet/webhook',
       res.status(200).end();
 	  });
   }
-  app.listen(app.get('port'), function() {
+  
+
+
+app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
   });
