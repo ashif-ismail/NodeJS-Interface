@@ -1,6 +1,7 @@
 var express = require('express');
 var request = require("request");
 var app = express();
+var body;
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
@@ -31,7 +32,7 @@ app.post('/telerivet/webhook',
         // do something with the message, e.g. send an autoreply
         res.json({
 			
-            var body;
+            
                 request("http://www.google.com", function(error, response, data) {
     body = data;
 });
