@@ -1,4 +1,7 @@
 var express = require('express');
+var request = require("request");
+var EventEmitter = require("events").EventEmitter;
+var body = new EventEmitter();
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
@@ -28,9 +31,16 @@ app.post('/telerivet/webhook',
         var phone_id = req.body.phone_id;
         
         // do something with the message, e.g. send an autoreply
+		request("http://www.stackoverflow.com", function(error, response, data) {
+         body.data = data;
+         body.emit('update');
+         });
+         body.on('update', function () {
+         console.log(body.data); // HOORAY! THIS WORKS!
+        });
         res.json({
           messages: [
-            { content: "Thanks for your message!" }
+            { content: "Thanks for your message!" + body.data }
           ]
         });
         
