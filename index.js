@@ -1,12 +1,12 @@
 var express = require('express');
+var request = require("request");
 var app = express();
-
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(request, response) {
-  response.send('Hello Cruel World!');
+  response.send('Hello Cruel World,Hell With You!');
 });
 
 var bodyParser = require('body-parser');
@@ -27,7 +27,7 @@ app.post('/telerivet/webhook',
         var content = req.body.content;
         var from_number = req.body.from_number;
         var phone_id = req.body.phone_id;
-        var request = require("request");
+        
 		
 		 request("http://www.google.com", function(error, response, data) {
     
@@ -44,8 +44,10 @@ app.post('/telerivet/webhook',
       res.status(200).end();
 	  });
   }
-);
+  
+
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
+  });
