@@ -25,7 +25,7 @@ app.post('/telerivet/webhook',
         // do something with the message, e.g. send an autoreply
         res.json({
 			 messages: [
-            { content: "Thanks for your message! "  + data}
+            { content: ""+data}
           ]
 		});
        res.status(200).end();
