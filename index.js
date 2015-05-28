@@ -69,8 +69,9 @@ var req = http.request(options, callback).end();
       
       res.status(200).end();
   }
-);
+
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
+});
 });
