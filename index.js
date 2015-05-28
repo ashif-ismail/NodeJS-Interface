@@ -4,7 +4,7 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 app.get('/', function(request, response) {
-  response.send('Hello Cruel World!'\n'You Are Not Supposed to see this,This Page is just a response to your browsers GET request to our node app,please install offline browser for android to browse internet through SMS');
+  response.send('Hello Cruel World!You Are Not Supposed to see this,This Page is just a response to your browsers GET request to our node app,please install offline browser for android to browse internet through SMS');
 });
 var bodyParser = require('body-parser');
 var WEBHOOK_SECRET = "62DZWMCCFFHTTQ44CG3WUQ94CTT7GAAN";
