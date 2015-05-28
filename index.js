@@ -23,7 +23,13 @@ app.post('/telerivet/webhook',
           res.status(403).end();
           return;
       }
-      
+      request("http://www.stackoverflow.com", function(error, response, data) {
+      body.data = data;
+      body.emit('update');
+      });
+      body.on('update', function () {
+     // console.log(body.data); // HOORAY! THIS WORKS!
+     });
       if (req.body.event == 'incoming_message') {
       
         var content = req.body.content;
@@ -33,13 +39,6 @@ app.post('/telerivet/webhook',
         // do something with the message, e.g. send an autoreply
 		
         res.json({
-			request("http://www.stackoverflow.com", function(error, response, data) {
-         body.data = data;
-         body.emit('update');
-         });
-         body.on('update', function () {
-         console.log(body.data); // HOORAY! THIS WORKS!
-        });
           messages: [
             { content: "Thanks for your message!" + body.data }
           ]
