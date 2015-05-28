@@ -2,8 +2,6 @@ var express = require('express');
 var http = require('http');
 var app = express();
 
-
-
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
@@ -30,8 +28,7 @@ app.post('/telerivet/webhook', bodyParser.urlencoded({ extended: true }),functio
         
         // do something with the message, e.g. send an autoreply
 		 function getData(){
-  var http = require('http');
-  var str = '';
+         var str = '';
 
   var options = {
         host: 'www.random.org',
