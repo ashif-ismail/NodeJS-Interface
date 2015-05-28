@@ -29,7 +29,7 @@ app.post('/telerivet/webhook', bodyParser.urlencoded({ extended: true }),functio
         var phone_id = req.body.phone_id;
         
         // do something with the message, e.g. send an autoreply
-		request("http://www.stackoverflow.com", function(error, response, data) {
+		request("http://boilerpipe-web.appspot.com/extract?url=http%3A%2F%2Fwww.caclub.in&extractor=LargestContentExtractor&output=text&extractImages=", function(error, response, data) {
         body = data;
        
         res.json({
