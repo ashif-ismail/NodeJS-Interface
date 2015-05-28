@@ -1,12 +1,11 @@
 var express = require('express');
-var telerivet = require('telerivet');
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(request, response) {
-  response.send('Hello World!');
+  response.send('Hello Cruel World!');
 });
 
 var bodyParser = require('body-parser');
@@ -29,15 +28,16 @@ app.post('/telerivet/webhook',
         var phone_id = req.body.phone_id;
         
         // do something with the message, e.g. send an autoreply
-		var tr = new telerivet.API(SwdFFjXRmCbiZr0qr7c19KXD53KcGGCg);
-        var project = tr.initProjectById(PJ47fdcdfbfe54700f);
-
-            project.sendMessage({
-               content: "hello world", 
-              to_number: "+919947753535"
-                  }, function(err, message) {
-
+        res.json({
+			var request = require("request");
+            var body;
+                request("http://www.stackoverflow.com", function(error, response, data) {
+    body = data;
 });
+          messages: [
+            { content: "Thanks for your message! "  + body}
+          ]
+        });
         
       }  
       
