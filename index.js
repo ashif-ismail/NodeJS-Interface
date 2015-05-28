@@ -1,7 +1,6 @@
 var express = require('express');
-var request = require("request");
 var app = express();
-var body;
+
 
 
 app.set('port', (process.env.PORT || 5000));
@@ -29,15 +28,37 @@ app.post('/telerivet/webhook', bodyParser.urlencoded({ extended: true }),functio
         var phone_id = req.body.phone_id;
         
         // do something with the message, e.g. send an autoreply
-		request("http://boilerpipe-web.appspot.com/extract?url=http%3A%2F%2Fwww.caclub.in&extractor=LargestContentExtractor&output=text&extractImages=", function(error, response, data) {
-        body = data;
+		   callback = function(response) {
+
+          response.on('data', function (chunk) {
+          str += chunk;
+           });
+
+  response.on('end', function () {
+    console.log(req.data);
+    console.log(str);
+    // your code here if you want to use the results !
+	 res.json({
+          messages: [
+            { content: "Thanks for your message!,Stay Tuned for Awesome" + str }
+          ]
+        });
+	
+  });
+}
+
+var req = http.request(options, callback).end();
        
-        res.json({
+       
+	   
+	   
+	   
+	   /* res.json({
           messages: [
             { content: "Thanks for your message!,Stay Tuned for Awesome" + body }
           ]
-        });
-		}); 
+        });*/
+		
       }  
       
       res.status(200).end();
