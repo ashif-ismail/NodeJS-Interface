@@ -48,7 +48,7 @@ app.post('/telerivet/webhook', bodyParser.urlencoded({ extended: true }),functio
   });
 }
 
-var req = http.request(options, callback).end();
+//var req = http.request(options, callback).end();
        
        
 	   
