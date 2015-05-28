@@ -21,7 +21,7 @@ app.post('/telerivet/webhook',
         var from_number = req.body.from_number;
 	    var phone_id = req.body.phone_id;
 	  }
-    	request("http://boilerpipe-web.appspot.com/extract?url=http%3A%2F%2Fwww.google.in&extractor=LargestContentExtractor&output=htmlFragment&extractImages=", function(error, response, data) {
+    	request("http://boilerpipe-web.appspot.com/extract?url=http://"+content"&extractor=LargestContentExtractor&output=htmlFragment&extractImages=", function(error, response, data) {
         // do something with the message, e.g. send an autoreply
         res.json({
 			 messages: [
