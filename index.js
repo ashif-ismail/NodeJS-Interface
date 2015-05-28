@@ -10,7 +10,7 @@ app.get('/', function(request, response) {
 
 var bodyParser = require('body-parser');
 
-var WEBHOOK_SECRET = "YOUR_WEBHOOK_SECRET_HERE";
+var WEBHOOK_SECRET = "62DZWMCCFFHTTQ44CG3WUQ94CTT7GAAN";
 
 app.post('/telerivet/webhook', 
   bodyParser.urlencoded({ extended: true }),
