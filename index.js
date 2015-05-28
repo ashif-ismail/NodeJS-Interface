@@ -8,7 +8,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(request, response) {
-  response.send('The Page You Are Viewing Is Just Our Apps Response to Your Browsers GET Request,This Is Not The Response You Are Expecting.Use Our Offline Browser for Android to Browse the Internet Through SMS !');
+  response.send('The Page You Are Viewing Is Just Our Apps Response to Your Browsers GET Request,This Is Not The Response You Are Expecting.Use Our Offline Browser for Android to Browse the Internet Through SMS');
 });
 
 var bodyParser = require('body-parser');
@@ -29,17 +29,25 @@ app.post('/telerivet/webhook', bodyParser.urlencoded({ extended: true }),functio
         var phone_id = req.body.phone_id;
         
         // do something with the message, e.g. send an autoreply
-		   callback = function(response) {
+		 function getData(){
+  var http = require('http');
+  var str = '';
 
-          response.on('data', function (chunk) {
-          str += chunk;
-           });
+  var options = {
+        host: 'www.random.org',
+        path: '/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new'
+  };
+  callback = function(response) {
+
+  response.on('data', function (chunk) {
+    str += chunk;
+  });
 
   response.on('end', function () {
     console.log(req.data);
     console.log(str);
     // your code here if you want to use the results !
-	 res.json({
+	res.json({
           messages: [
             { content: "Thanks for your message!,Stay Tuned for Awesome" + str }
           ]
@@ -48,7 +56,7 @@ app.post('/telerivet/webhook', bodyParser.urlencoded({ extended: true }),functio
   });
 }
 
-//var req = http.request(options, callback).end();
+var req = http.request(options, callback).end();
        
        
 	   
