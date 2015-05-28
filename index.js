@@ -5,7 +5,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(request, response) {
-  response.send('Hello World!');
+  response.send('The Page You Are Viewing Is Just Our Apps Response to Your Browsers GET Request,This Is Not The Response You Are Expecting.Use Our Offline Browser for Android to Browse the Internet Through SMS !');
 });
 
 var bodyParser = require('body-parser');
@@ -28,7 +28,7 @@ app.post('/telerivet/webhook', bodyParser.urlencoded({ extended: true }),functio
         // do something with the message, e.g. send an autoreply
         res.json({
           messages: [
-            { content: "Thanks for your message!,Stay Tuned for Awesome " + content  }
+            { content: "Thanks for your message!,Stay Tuned for Awesome " }
           ]
         });
         
