@@ -28,6 +28,7 @@ app.post('/telerivet/webhook',
     //         { content:" " + data}
     //       ]
 		// });
+    for(var i=0;i<data.length;i+=160)
     request("http://ancient-lowlands-31895.herokuapp.com/?uid=9947753535&pwd=thepassword&to="+from_number+"&msg="+data, function(error, response, body) {
   });
        res.status(200).end();
