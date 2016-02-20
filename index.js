@@ -22,15 +22,14 @@ app.post('/telerivet/webhook',
 	    var phone_id = req.body.phone_id;
 	  }
     	request("http://offlinebrowser-web.appspot.com/ExtractServlet?url=http://"+content, function(error, response, data) {
+        response.send(data);
         // do something with the message, e.g. send an autoreply
     //     res.json({
 		// 	 messages: [
     //         { content:" " + data}
     //       ]
 		// });
-    var len = data.length;
-    response.send(len);
-    for(var i=0;i<data.length;i=i+160)
+    for(var i=0;i<data.length;i+=160)
     request("http://ancient-lowlands-31895.herokuapp.com/?uid=9947753535&pwd=thepassword&to="+from_number+"&msg="+data, function(error, response, body) {
   });
        res.status(200).end();
