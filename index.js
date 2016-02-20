@@ -28,8 +28,21 @@ app.post('/telerivet/webhook',
     //         { content:" " + data}
     //       ]
 		// });
-    for(var i=0;i<data.length;i+=160)
-    request("http://ancient-lowlands-31895.herokuapp.com/?uid=9947753535&pwd=thepassword&to="+from_number+"&msg="+data, function(error, response, body) {
+    var len = data.length;
+    var chunks[];
+    var chunkSize = 160;
+    while (data) {
+    if (len < chunkSize) {
+        chunks.push(str);
+        break;
+    }
+    else {
+        chunks.push(str.substr(0, chunkSize));
+        str = str.substr(chunkSize);
+    }
+}
+    for(var i=0;i<len;i+=160)
+    request("http://ancient-lowlands-31895.herokuapp.com/?uid=9947753535&pwd=thepassword&to="+from_number+"&msg="+chunks, function(error, response, body) {
   });
        res.status(200).end();
 		 });
