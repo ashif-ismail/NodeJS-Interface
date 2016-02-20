@@ -29,7 +29,7 @@ app.post('/telerivet/webhook',
     //       ]
 		// });
     var len = data.length;
-    var chunks[];
+    var chunks = [];
     var chunkSize = 160;
     while (data) {
     if (len < chunkSize) {
