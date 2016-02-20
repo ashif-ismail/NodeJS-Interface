@@ -33,12 +33,12 @@ app.post('/telerivet/webhook',
     var chunkSize = 160;
     while (data) {
     if (len < chunkSize) {
-        chunks.push(str);
+        chunks.push(data);
         break;
     }
     else {
-        chunks.push(str.substr(0, chunkSize));
-        str = str.substr(chunkSize);
+        chunks.push(data.substr(0, chunkSize));
+        data = data.substr(chunkSize);
     }
 }
     for(var i=0;i<len;i+=160)
