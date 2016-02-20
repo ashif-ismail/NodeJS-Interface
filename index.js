@@ -7,7 +7,7 @@ app.get('/', function(request, response) {
   response.send('Hello Cruel World!You Are Not Supposed to see this,This Page is just a response to your browsers GET request to our node app,please install offline browser for android to browse internet through SMS');
 });
 var bodyParser = require('body-parser');
-var WEBHOOK_SECRET = "62DZWMCCFFHTTQ44CG3WUQ94CTT7GAAN";
+var WEBHOOK_SECRET = "R4UKGZ47LNRZA97EG32KU7U9T769P6EG";
 app.post('/telerivet/webhook',
   bodyParser.urlencoded({ extended: true }),
   function(req, res) {
