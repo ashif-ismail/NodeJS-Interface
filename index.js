@@ -8,7 +8,7 @@ app.get('/', function(request, response) {
 });
 var bodyParser = require('body-parser');
 var WEBHOOK_SECRET = "62DZWMCCFFHTTQ44CG3WUQ94CTT7GAAN";
-app.post('/telerivet/webhook', 
+app.post('/telerivet/webhook',
   bodyParser.urlencoded({ extended: true }),
   function(req, res) {
       var secret = req.body.secret;
@@ -23,16 +23,17 @@ app.post('/telerivet/webhook',
 	  }
     	request("http://boilerpipe-web.appspot.com/extract?url=http://"+content+"&extractor=LargestContentExtractor&output=text&extractImages=", function(error, response, data) {
         // do something with the message, e.g. send an autoreply
-        res.json({
-			 messages: [
-            { content:" " + data}
-          ]
-		});
+    //     res.json({
+		// 	 messages: [
+    //         { content:" " + data}
+    //       ]
+		// });
+    request("http://ancient-lowlands-31895.herokuapp.com/?uid=9947753535&pwd=thepassword&to="+from_number+"&msg="+data, function(error, response, body) {
+  });
        res.status(200).end();
 		 });
   }
-	);  
+	);
 	  app.listen(app.get('port'), function() {
      console.log('Node app is running on port', app.get('port'));
      });
- 
