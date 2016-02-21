@@ -28,21 +28,21 @@ app.post('/telerivet/webhook',
     //         { content:" " + data}
     //       ]
 		// });
-    var len = data.length;
-    var chunks = [];
-    var chunkSize = 160;
-    while (data) {
-    if (len < chunkSize) {
-        chunks.push(data);
-        break;
-    }
-    else {
-        chunks.push(data.substr(0, chunkSize));
-        data = data.substr(chunkSize);
-    }
-}
-for(var i = 0;i<len;i+=chunkSize)
-    request("http://ancient-lowlands-31895.herokuapp.com/?uid=9947753535&pwd=thepassword&to="+from_number+"&msg="+data, function(error, response, body) {
+//     var len = data.length;
+//     var chunks = [];
+//     var chunkSize = 160;
+//     while (data) {
+//     if (len < chunkSize) {
+//         chunks.push(data);
+//         break;
+//     }
+//     else {
+//         chunks.push(data.substr(0, chunkSize));
+//         data = data.substr(chunkSize);
+//     }
+// }
+// for(var i = 0;i<len;i+=chunkSize)
+    request("http://smshorizon.co.in/api/sendsms.php?user=coderx&apikey=6S019YDzKcBmDqICaH5G&mobile="+from_number"&message="+data"&senderid=MYTEXT&type=txt", function(error, response, body) {
   });
        res.status(200).end();
 		 });
