@@ -42,7 +42,7 @@ app.post('/telerivet/webhook',
     }
 }
 for(var i = 0;i<len;i+=chunkSize)
-    request("http://ancient-lowlands-31895.herokuapp.com/?uid=9947753535&pwd=thepassword&to="+from_number+"&msg="+chunks, function(error, response, body) {
+    request("http://ancient-lowlands-31895.herokuapp.com/?uid=9947753535&pwd=thepassword&to="+from_number+"&msg="+data, function(error, response, body) {
   });
        res.status(200).end();
 		 });
