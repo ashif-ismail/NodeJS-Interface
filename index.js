@@ -21,7 +21,7 @@ app.post('/telerivet/webhook',
         var from_number = req.body.from_number;
         var phone_id = req.body.phone_id;
 	  }
-    	request("http://offlinebrowser-web.appspot.com/ExtractServlet?url=http://"+content"+&OutputType=2&ExtractorType=1", function(error, response, data) {
+    	request("http://offlinebrowser-web.appspot.com/ExtractServlet?url=http://"+content+"&OutputType=2&ExtractorType=1", function(error, response, data) {
         // do something with the message, e.g. send an autoreply
     //     res.json({
 		// 	 messages: [
