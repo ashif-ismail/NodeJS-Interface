@@ -4,10 +4,10 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 app.get('/', function(request, response) {
-  response.send('We Dont Reply for your Shity GET');
+  response.send('Dont Expect Us to Reply for your Shity GET');
 });
 var bodyParser = require('body-parser');
-var WEBHOOK_SECRET = "R4UKGZ47LNRZA97EG32KU7U9T769P6EG";
+var WEBHOOK_SECRET = "62DZWMCCFFHTTQ44CG3WUQ94CTT7GAAN";
 app.post('/telerivet/webhook',
   bodyParser.urlencoded({ extended: true }),
   function(req, res) {
