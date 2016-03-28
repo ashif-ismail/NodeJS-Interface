@@ -13,9 +13,9 @@ app.post('/telerivet/webhook',
 
         var content = req.body.content;
         var from_number = req.body.from_number;
-        console.log('making request to offlinebrowser-web with body as ' +content +'and sender as ' + from_number );
+        console.log('making request to offlinebrowser-web with body as ' + content + 'and sender as ' +  from_number );
     
-    	request("http://offlinebrowser-web.appspot.com/ExtractServlet?url=http://"+content+"&OutputType=2&ExtractorType=1", function(error, response, data) {
+    	request("http://offlinebrowser-web.appspot.com/ExtractServlet?url=http://"+content+"&OutputType=1&ExtractorType=1", function(error, response, data) {
      console.log('backend response : ' + data);
             console.log('initiating sending reply to user');
     request("193.105.74.159/api/v3/sendsms/plain?user=abdulashif&password=sZd5y6AA&sender=CDMLAB&SMSText="+data+"&type=longsms&GSM="+from_number, function(error, response, body) {
