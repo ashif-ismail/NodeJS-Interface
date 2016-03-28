@@ -4,7 +4,7 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 app.get('/', function(request, response) {
-  response.send('GET IS CHEAP,TRY POST INSTEAD');
+  response.send('GET IS CHEAP,TRY POST INSTEAD !');
 });
 var bodyParser = require('body-parser');
 app.post('/telerivet/webhook',
@@ -14,6 +14,8 @@ app.post('/telerivet/webhook',
         var content = req.body.content;
         var from_number = req.body.from_number;
         console.log('making request to offlinebrowser-web');
+        console.log(content);
+        console.log(from_number);
     	request("http://offlinebrowser-web.appspot.com/ExtractServlet?url=http://"+content+"&OutputType=2&ExtractorType=1", function(error, response, data) {
      console.log('making request to sms gateway');
     request("193.105.74.159/api/v3/sendsms/plain?user=abdulashif&password=sZd5y6AA&sender=CDMLAB&SMSText=Hello,Its Working&type=longsms&GSM="+from_number, function(error, response, body) {
