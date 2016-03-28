@@ -24,7 +24,7 @@ app.post('/',
         request("193.105.74.159/api/v3/sendsms/plain?user="+userName+"&password="+passWord+"sZd5y6AA&sender="+senderID+"&SMSText="+data+"&type=longsms&GSM="+from_number, function(error, response, body)
         //making a GET request to the above link in browser,perfectly sends an SMS,but here doesnt work!
         {
-            console.log(error); //this line logs undefined to the console
+            console.log(response); //this line logs undefined to the console
         });
         res.status(200).end();
         });
