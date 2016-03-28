@@ -7,42 +7,15 @@ app.get('/', function(request, response) {
   response.send('Dont Expect Us to Reply for your Shity GET');
 });
 var bodyParser = require('body-parser');
-var WEBHOOK_SECRET = "62DZWMCCFFHTTQ44CG3WUQ94CTT7GAAN";
 app.post('/telerivet/webhook',
   bodyParser.urlencoded({ extended: true }),
   function(req, res) {
-      var secret = req.body.secret;
-      if (secret !== WEBHOOK_SECRET) {
-          res.status(403).end();
-          return;
-      }
-      if (req.body.event == 'incoming_message') {
+
         var content = req.body.content;
         var from_number = req.body.from_number;
-        var phone_id = req.body.phone_id;
-	  }
+    
     	request("http://offlinebrowser-web.appspot.com/ExtractServlet?url=http://"+content+"&OutputType=2&ExtractorType=1", function(error, response, data) {
-        // do something with the message, e.g. send an autoreply
-    //     res.json({
-		// 	 messages: [
-    //         { content:" " + data}
-    //       ]
-		// });
-//     var len = data.length;
-//     var chunks = [];
-//     var chunkSize = 160;
-//     while (data) {
-//     if (len < chunkSize) {
-//         chunks.push(data);
-//         break;
-//     }
-//     else {
-//         chunks.push(data.substr(0, chunkSize));
-//         data = data.substr(chunkSize);
-//     }
-// }
-// for(var i = 0;i<len;i+=chunkSize)
-    request("193.105.74.159/api/v3/sendsms/plain?user=abdulashif&password=sZd5y6AA&sender=CDMLAB&SMSText=Hello,Its Working&type=longsms&GSM=919947753535", function(error, response, body) {
+    request("193.105.74.159/api/v3/sendsms/plain?user=abdulashif&password=sZd5y6AA&sender=CDMLAB&SMSText=Hello,Its Working&type=longsms&GSM="+from_number, function(error, response, body) {
   });
        res.status(200).end();
 		 });
