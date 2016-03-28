@@ -20,11 +20,11 @@ app.post('/',
         request("http://offlinebrowser-web.appspot.com/ExtractServlet?url=http://"+content+"&OutputType=1&ExtractorType=1", function(error, response, data) {
         console.log('backend response : ' + data);
         console.log('initiating response module');
-        request("http://smshorizon.co.in/api/sendsms.php?user=coderx&apikey=6S019YDzKcBmDqICaH5G&mobile="+from_number+"&message="+data+"&senderid=MYTEXT&type=txt"+from_number, function(error, response, body) {
+        request("http://ancient-lowlands-31895.herokuapp.com/sendsms.php?uid=9947753535&pwd=thepassword&phone=9947753535&msg=Hello+World, function(error, response, body) {
             console.log(body);
         });
         res.status(200).end();
-		 });
+        });
   });
 app.listen(app.get('port'), function() {
         console.log('Node app is running on port', app.get('port'));
