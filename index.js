@@ -21,6 +21,7 @@ app.post('/',
         console.log('backend response : ' + data);
         console.log('initiating response module');
         request("http://smshorizon.co.in/api/sendsms.php?user=coderx&apikey=6S019YDzKcBmDqICaH5G&mobile="+from_number+"&message="+data+"&senderid=MYTEXT&type=txt"+from_number, function(error, response, body) {
+            console.log(body);
         });
         res.status(200).end();
 		 });
