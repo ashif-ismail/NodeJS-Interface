@@ -4,10 +4,10 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 app.get('/', function(request, response) {
-  response.send('GET IS CHEAP,TRY POST INSTEAD !!');
+  response.send('GET IS CHEAP,TRY POST INSTEAD !!!');
 });
 var bodyParser = require('body-parser');
-app.post('/telerivet/webhook',
+app.post('/',
   bodyParser.urlencoded({ extended: true }),
   function(req, res) {
 
