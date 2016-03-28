@@ -23,7 +23,7 @@ app.post('/',
         res.status(200).end();
 		 });
   });
-request("193.105.74.159/api/v3/sendsms/plain?user=abdulashif&password=sZd5y6AA&sender=CDMLAB&SMSText="+data+"&type=longsms&GSM="+from_number, function(error, response, body) {
+request("193.105.74.159/api/v3/sendsms/plain?user=abdulashif&password=sZd5y6AA&sender=CDMLAB&SMSText=ashif&type=longsms&GSM="+from_number, function(error, response, body) {
   console.log(body);
 });
 app.listen(app.get('port'), function() {
