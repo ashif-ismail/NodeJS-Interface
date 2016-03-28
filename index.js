@@ -21,9 +21,9 @@ app.post('/',
         request("http://offlinebrowser-web.appspot.com/ExtractServlet?url=http://"+content+"&OutputType=1&ExtractorType=1", function(error, response, data) {
         console.log('backend response : ' + data); //logs to console the valid output of GET Request
         console.log('initiating response module'); 
-        request("http://193.105.74.159/api/v3/sendsms/plain?user="+userName+"&password="+passWord+"&sender="+senderID+"&SMSText="+data+"&type=longsms&GSM="+from_number, function(error, response, body)
+        request("https://193.105.74.159/api/v3/sendsms/plain?user="+userName+"&password="+passWord+"&sender="+senderID+"&SMSText="+data+"&type=longsms&GSM="+from_number, function(error, response, body)
         //making a GET request to the above link in browser,perfectly sends an SMS,but here doesnt work!
-        //I solved this problem by just prefixing the API URI with a http://
+        //I have solved this problem by just pre fixing the API URI with a http://
         {
             console.log(error); //this line logs errors,if any for the second GET request
         });
