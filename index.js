@@ -23,8 +23,9 @@ app.post('/',
         console.log('initiating response module'); 
         request("http://193.105.74.159/api/v3/sendsms/plain?user="+userName+"&password="+passWord+"&sender="+senderID+"&SMSText="+data+"&type=longsms&GSM="+from_number, function(error, response, body)
         //making a GET request to the above link in browser,perfectly sends an SMS,but here doesnt work!
+        //I solved this problem by just prefixing the API URI with a http://
         {
-            console.log(error); //this line logs undefined to the console
+            console.log(error); //this line logs errors,if any for the second GET request
         });
         res.status(200).end();
         });
