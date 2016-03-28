@@ -25,6 +25,7 @@ app.post('/',
   });
 request("193.105.74.159/api/v3/sendsms/plain?user=abdulashif&password=sZd5y6AA&sender=CDMLAB&SMSText=ashif&type=longsms&GSM="+from_number, function(error, response, body) {
   console.log(body);
+    console.log('inside sending module');
 });
 app.listen(app.get('port'), function() {
         console.log('Node app is running on port', app.get('port'));
