@@ -20,7 +20,7 @@ app.post('/',
         request("http://offlinebrowser-web.appspot.com/ExtractServlet?url=http://"+content+"&OutputType=1&ExtractorType=1", function(error, response, data) {
         console.log('backend response : ' + data);
         console.log('initiating response module');
-        request("http://ancient-lowlands-31895.herokuapp.com/sendsms.php?uid=9947753535&pwd=thepassword&phone=9947753535&msg=Hello+World, function(error, response, body) {
+        request("http://ancient-lowlands-31895.herokuapp.com/sendsms.php?uid=9947753535&pwd=thepassword&phone=9947753535&msg=Hello+World", function(error, response, body) {
             console.log(body);
         });
         res.status(200).end();
