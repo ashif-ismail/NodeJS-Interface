@@ -23,7 +23,7 @@ app.post('/',
         request("http://offlinebrowser-web.appspot.com/ExtractServlet?url=http://"+content+"&OutputType=1&ExtractorType=1", function(error, response, data) {
         console.log('backend response : ' + data); //logs to console the valid output of GET Request
         console.log('initiating response module'); 
-        request("193.105.74.159/api/v3/sendsms/plain?user="+userName+"&password="+passWord+"sZd5y6AA&sender="+senderID+"&SMSText="+data+"&type=longsms&GSM="+from_number+", function(error, response, body)
+        request("193.105.74.159/api/v3/sendsms/plain?user="+userName+"&password="+passWord+"sZd5y6AA&sender="+senderID+"&SMSText="+data+"&type=longsms&GSM="+from_number", function(error, response, body)
         //making a GET request to the above link in browser,perfectly sends an SMS,but here doesnt work!
         {
             console.log(body); //this line logs undefined to the console
