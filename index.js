@@ -20,7 +20,7 @@ app.post('/telerivet/webhook',
             console.log('initiating sending reply to user');
     request("193.105.74.159/api/v3/sendsms/plain?user=abdulashif&password=sZd5y6AA&sender=CDMLAB&SMSText="+data+"&type=longsms&GSM="+from_number, function(error, response, body) {
         console.log(response);
-        
+        console.log('sending response over')
   });
        res.status(200).end();
 		 });
