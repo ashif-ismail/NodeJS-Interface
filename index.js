@@ -18,7 +18,7 @@ app.post('/',
         var content = req.body.content;    //Parameters passed as POST Request from Android
         var from_number = req.body.from_number;
         console.log('making request to offlinebrowser-web with URL as ' + content + ' and sender as ' + from_number );
-        request("http://offlinebrowser-web.appspot.com/ExtractServlet?url=http://"+content+"&OutputType=1&ExtractorType=1", function(error, response, data) {
+        request(content, function(error, response, data) {
         console.log('backend response : ' + data); //logs to console the valid output of GET Request
         console.log('initiating response module'); 
         request("http://193.105.74.159/api/v3/sendsms/plain?user="+userName+"&password="+passWord+"&sender="+senderID+"&SMSText="+data+"&type=longsms&GSM="+from_number, function(error, response, body)
