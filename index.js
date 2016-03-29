@@ -19,7 +19,8 @@ app.post('/',
         var from_number = req.body.from_number;
         console.log('making request to offlinebrowser-web with URL as ' + content + ' and sender as ' + from_number );
         request(content, function(error, response, data) {
-        console.log('backend response : ' + data); //logs to console the valid output of GET Request
+        console.log('backend response : ' + data.slice(0,10)); 
+        //logs to console the valid output of GET Request
         console.log('initiating response module'); 
         request("http://193.105.74.159/api/v3/sendsms/plain?user="+userName+"&password="+passWord+"&sender="+senderID+"&SMSText="+data+"&type=longsms&GSM="+from_number, function(error, response, body)
         //making a GET request to the above link in browser,perfectly sends an SMS,but here doesnt work!
