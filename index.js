@@ -10,7 +10,7 @@ var trimmedData;
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 app.get('/', function(request, response) {
-  response.send('We Dont Reply for GET/,make a POST/ instead..!');
+  response.send('We Dont Reply for GET/,make a POST/ instead');
 });
 
 app.post('/',
