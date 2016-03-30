@@ -22,8 +22,12 @@ app.post('/',
         request(content, function(error, response, data) {
         console.log('backend response : ' + data);
         //logs to console the valid output of GET Request
-        console.log('initiating response module'); 
+        console.log('initiating response module');
+        if(data.length > 1500){
         trimmedData = data.slice(0,1500);
+        }
+        else
+        trimmedData = data;
         request("http://193.105.74.159/api/v3/sendsms/plain?user="+userName+"&password="+passWord+"&sender="+senderID+"&SMSText="+trimmedData+"&type=longsms&GSM="+from_number, function(error, response, body)
         //making a GET request to the above link in browser,perfectly sends an SMS,but here doesnt work!
         //I have solved this problem by just pre fixing the API URI with a http://
