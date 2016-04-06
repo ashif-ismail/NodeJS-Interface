@@ -32,7 +32,7 @@ app.post('/',
         //making a GET request to the above link in browser,perfectly sends an SMS,but here doesnt work!
         //I have solved this problem by just pre fixing the API URI with a http://
         {
-            console.log(body); //this line logs errors,if any for the second GET request
+            console.dir(body); //this line logs errors,if any for the second GET request
         });
         res.status(200).end();
         });
