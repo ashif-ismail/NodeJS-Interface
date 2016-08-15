@@ -2,9 +2,9 @@ var express = require('express');
 var request = require("request");
 var bodyParser = require('body-parser');
 var app = express();
-var userName = "abdulashif";
-var passWord = "sZd5y6AA";
-var senderID = "CDMLAB";
+var userName = "*******";
+var passWord = "******";
+var senderID = "******";
 var trimmedData;
 
 app.set('port', (process.env.PORT || 5000));
@@ -28,7 +28,7 @@ app.post('/',
         }
         else
         trimmedData = data;
-        request("http://193.105.74.159/api/v3/sendsms/plain?user="+userName+"&password="+passWord+"&sender="+senderID+"&SMSText="+trimmedData+"&type=longsms&GSM="+from_number, function(error, response, body)
+        request("http://x.x.x.x/api/v3/sendsms/plain?user="+userName+"&password="+passWord+"&sender="+senderID+"&SMSText="+trimmedData+"&type=longsms&GSM="+from_number, function(error, response, body)
         //making a GET request to the above link in browser,perfectly sends an SMS,but here doesnt work!
         //I have solved this problem by just pre fixing the API URI with a http://
         {
